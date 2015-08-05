@@ -21,28 +21,48 @@
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
+
+    <style>
+      body {
+        background: #fefefe;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #333;
+      }
+
+      .container {
+        position: relative;
+        max-width: 1140px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 100px 0;
+      }
+
+    </style>
+
+
   </head>
   <body>
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
-      <ul>
-        <li>HTML5 Boilerplate</li>
-        <li>Sass</li>
-        <li>Modernizr</li>
-        <li>jQuery</li>
-        <li>And a cookie</li>
-      </ul>
+    <div class="container">
+
+      <div id="nikeAirZoomExplorer" class="explorer-frame" data-frames-dir="../images/frames/" data-overlays-dir="../images/overlays/" data-lang="eng/">
+        <div class="explorer-image-seq-container">
+          <img src="/images/frames/shoe_splodin_1.jpg" alt="Nike Air Zoom" class="explorer-image-seq-image">
+        </div>
+      </div>
+
     </div>
+
 
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/image_preloader/image_preloader.js"></script>
+
     <!-- endbower -->
     <!-- endbuild -->
 
