@@ -66,11 +66,3 @@ class transport.ImageScrubber
       console.log 'frame images loaded'
       @spinner.stop()
       @draw()
-
-
-
-
-
-$ ->
-  scrubber = new transport.ImageScrubber($('#nikeAirZoomExplorer'))
-
