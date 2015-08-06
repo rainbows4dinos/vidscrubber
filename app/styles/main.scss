@@ -2,11 +2,26 @@
 // endbower
 
 .explorer-frame {
+  position: relative;
   width: 100%;
+  background: #acfd32;
+
 }
 
 .explorer-image-seq-image {
   width: 100%;
   height: auto;
+}
+
+.explorer-spinner {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 100;
 }
 

@@ -9,14 +9,18 @@ window.requestAnimationFrame = do ->
     return
 
 class transport.ImageScrubber
+  @IMAGES_LOADED = "transport.images.loaded"
+
 
   constructor: (@target) ->
     @imageSeqImg = $('.explorer-image-seq-image', @target)
+    @spinnerTarget = $('.explorer-spinner', @target)
     @framesDir = $(@target).attr('data-frames-dir')
     @overlaysDir = $(@target).attr('data-overlays-dir')
     @langDir = $(@target).attr('data-lang')
 
     @totalFrames = 24
+    @currentFrame = 1
     @imgNamePrefix = "shoe_splodin_"
 
     @imageFrames = []
@@ -24,47 +28,44 @@ class transport.ImageScrubber
     @init()
 
   init: ->
+    @initEvents()
     @preloadImgs()
+
+
+  initEvents: ->
 
 
   draw: =>
     console.log 'drawing'
+    @currentFrame++ unless @currentFrame == 24
+    src = @framesDir + @imgNamePrefix + @currentFrame + ".jpg"
+    @imageSeqImg.attr('src', src)
+
     window.requestAnimationFrame(@draw)
 
+
+
   preloadImgs: ->
-    frameSrcs = []
+    @spinner = new Spinner({color:'#fff', width: 2, length: 20, radius: 50, lines: 12}).spin()
+    @spinnerTarget.append(@spinner.el)
+    @frameSrcs = []
     # loop through frame images
     for i in [1... @totalFrames+1] by 1
-      # img = new Image()
-      # img.src = @framesDir + @imgNamePrefix + i + ".jpg"
-      # @imageFrames.push(img)
       src = @framesDir + @imgNamePrefix + i + ".jpg"
-      frameSrcs.push src
+      @frameSrcs.push src
 
-    console.log frameSrcs
     that = @
-    preloader = new ImagePreloader(
-      urls: frameSrcs
-      imageLoad: (imageDetails) ->
-        console.log imageDetails
+    @preloader = new ImagePreloader
+      urls: @frameSrcs
       complete: (imageUrls) ->
-        console.log "complete"
-        # how?
-        # that.preloadCompleted(imageUrls)
-    )
-    preloader.start()
+        $(window).trigger(transport.ImageScrubber.IMAGES_LOADED)
 
-    console.log preloader
+    @preloader.start()
 
-  preloadCompleted: (imageUrls) ->
-    console.log complete
-    console.log imageUrls
-
-
-
-
-
-
+    $(window).on transport.ImageScrubber.IMAGES_LOADED, (e) =>
+      console.log 'frame images loaded'
+      @spinner.stop()
+      @draw()
 
 
 
@@ -73,9 +74,3 @@ class transport.ImageScrubber
 $ ->
   scrubber = new transport.ImageScrubber($('#nikeAirZoomExplorer'))
 
-
-  # draw = ->
-  #   console.log '??'
-  #   requestAnimationFrame(draw)
-
-  # draw()
