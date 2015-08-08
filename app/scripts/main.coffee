@@ -20,7 +20,7 @@ class transport.ImageScrubber
     @langDir            = $(@target).attr('data-lang')
     @sliderTarget       = $('.explorer-range-slider', @target)
     @totalFrames        = parseInt($(@target).attr('data-frame-count')) || 24
-    @previousFrame      = 0
+    @targetFrame        = 1
     @currentFrame       = 1
     @imgNamePrefix      = "shoe_splodin_"
     @imageFrames        = []
@@ -30,6 +30,8 @@ class transport.ImageScrubber
     @preloadImgs()
 
   initEvents: ->
+    that = @
+
     @slider = document.getElementById('explorerSlider')
     noUiSlider.create @slider,
       start: 1
@@ -39,22 +41,21 @@ class transport.ImageScrubber
         'min': 1
         'max': 24
 
-    that = @
     @slider.noUiSlider.on 'update', (values, handle) ->
       console.log "value: #{values[handle]}"
-      that.currentFrame = Math.floor(values[handle])
-      that.gotoFrame()
+      that.targetFrame = Math.floor(values[handle])
 
-    # @draw()
+    @draw()
 
   draw: =>
-    @currentFrame++ unless @currentFrame == @totalFrames
+    @currentFrame += (@targetFrame - @currentFrame) / 5 unless @currentFrame == @targetFrame
+    @gotoFrame(Math.floor(@currentFrame))
     window.requestAnimationFrame(@draw)
 
-  gotoFrame: ->
-    console.log @currentFrame
-    return if @currentFrame <= 0
-    src = @framesDir + @imgNamePrefix + @currentFrame + ".jpg"
+  gotoFrame: (frame) ->
+    console.log "current frame: #{frame}"
+    return if frame <= 0
+    src = @framesDir + @imgNamePrefix + frame + ".jpg"
     @imageSeqImg.attr('src', src)
 
   preloadImgs: ->
