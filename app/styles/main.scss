@@ -17,7 +17,9 @@
   position: absolute;
   width: 100%;
   height: auto;
-  z-index: 1;
+
+  &.frames {z-index: 1;}
+  &.callouts {z-index: 2;}
 }
 
 .explorer-controls {
@@ -26,7 +28,7 @@
   bottom: 20px;
   left: 50%;
   margin-left: -20%;
-  z-index: 2;
+  z-index: 3;
 }
 
 .explorer-spinner {
@@ -38,7 +40,7 @@
   left: 0;
   right: 0;
   margin: auto;
-  z-index: 3;
+  z-index: 4;
 }
 
 

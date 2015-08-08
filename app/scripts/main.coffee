@@ -13,15 +13,18 @@ class transport.ImageScrubber
   constructor: (@target) ->
     @spinnerTarget      = $('.explorer-spinner', @target)
     @framesDir          = $(@target).attr('data-frames-dir')
-    @overlaysDir        = $(@target).attr('data-overlays-dir')
+    @calloutsDir        = $(@target).attr('data-callouts-dir')
     @langDir            = $(@target).attr('data-lang')
     @sliderTarget       = $('.explorer-range-slider', @target)
-    @canvasTarget       = document.getElementById('explorerCanvas')
-    @canvasContext      = @canvasTarget.getContext('2d')
+    @framesCanvas       = document.getElementById('explorerFramesCanvas')
+    @framesContext      = @framesCanvas.getContext('2d')
+    @calloutsCanvas     = document.getElementById('explorerCalloutsCanvas')
+    @calloutsContext    = @calloutsCanvas.getContext('2d')
     @totalFrames        = parseInt($(@target).attr('data-frame-count')) || 24
     @targetFrame        = 1
     @currentFrame       = 1
     @imgNamePrefix      = "shoe_splodin_"
+    @calloutPrefix      = "callouts_"
     @imageFrames        = []
 
     @init()
@@ -71,7 +74,7 @@ class transport.ImageScrubber
     src = @framesDir + @imgNamePrefix + frame + ".jpg"
     img = new Image()
     img.src = src
-    @canvasContext.drawImage(img, 0, 0, @canvasTarget.width, @canvasTarget.height)
+    @framesContext.drawImage(img, 0, 0, @framesCanvas.width, @framesCanvas.height)
 
   preloadImgs: ->
     @spinner = new Spinner({color:'#fff', width: 2, length: 20, radius: 50, lines: 12}).spin()
