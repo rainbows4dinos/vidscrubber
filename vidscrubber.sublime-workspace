@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"z",
+				"z-index"
+			],
+			[
+				"rangesl",
+				"rangeslider"
+			],
+			[
+				"epl",
+				"explorer-range-slider"
+			],
+			[
+				"init",
+				"initEvents"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
 				"image",
 				"imageDetails"
 			],
@@ -30,10 +50,6 @@
 			[
 				"gr",
 				"grid-span"
-			],
-			[
-				"back",
-				"background-repeat"
 			],
 			[
 				"text",
@@ -498,22 +514,6 @@
 			[
 				"max",
 				"max-width"
-			],
-			[
-				"show",
-				"showLoad"
-			],
-			[
-				"sh",
-				"showLoad"
-			],
-			[
-				"des",
-				"desc-block"
-			],
-			[
-				"bod",
-				"bodies"
 			]
 		]
 	},
@@ -523,23 +523,29 @@
 			"file": "app/scripts/main.coffee",
 			"settings":
 			{
-				"buffer_size": 1767,
+				"buffer_size": 2467,
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"contents": "// bower:scss\n@import url('/bower_components/nouislider/distribute/nouislider.min.css');\n// endbower\n\n.explorer-frame {\n  position: relative;\n  width: 100%;\n  background: #acfd32;\n\n}\n\n.explorer-image-seq-image {\n  width: 100%;\n  height: auto;\n}\n\n.explorer-spinner {\n  position: absolute;\n  width: 300px;\n  height: 300px;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  z-index: 3;\n}\n\n.explorer-controls {\n  position: absolute;\n  width: 100%;\n  bottom: 20px;\n  z-index: 2;\n\n  .explorer-range-slider {\n    position: relative;\n    display: inline-block;\n    width: 60%;\n    margin: 0 auto;\n  }\n}\n\n\n",
 			"file": "app/styles/main.scss",
+			"file_size": 611,
+			"file_write_time": 1438922107000000,
 			"settings":
 			{
-				"buffer_size": 125,
+				"buffer_size": 611,
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"contents": "<!doctype html>\n<html class=\"no-js\" lang=\"\">\n  <head>\n    <meta charset=\"utf-8\">\n    <meta name=\"description\" content=\"\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>vidscrubber</title>\n\n    <link rel=\"apple-touch-icon\" href=\"apple-touch-icon.png\">\n    <!-- Place favicon.ico in the root directory -->\n\n    <!-- build:css styles/vendor.css -->\n    <!-- bower:css -->\n    <link rel=\"stylesheet\" href=\"/bower_components/nouislider/distribute/nouislider.min.css\" />\n    <!-- endbower -->\n    <!-- endbuild -->\n\n    <!-- build:css styles/main.css -->\n    <link rel=\"stylesheet\" href=\"styles/main.css\">\n    <!-- endbuild -->\n\n    <!-- build:js scripts/vendor/modernizr.js -->\n    <script src=\"/bower_components/modernizr/modernizr.js\"></script>\n    <!-- endbuild -->\n\n    <style>\n      body {\n        background: #fefefe;\n        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;\n        color: #333;\n      }\n\n      .container {\n        position: relative;\n        max-width: 1140px;\n        width: 100%;\n        margin: 0 auto;\n        padding: 100px 0;\n      }\n\n    </style>\n\n\n  </head>\n  <body>\n    <!--[if lt IE 10]>\n      <p class=\"browserupgrade\">You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/\">upgrade your browser</a> to improve your experience.</p>\n    <![endif]-->\n\n    <div class=\"container\">\n\n      <div id=\"nikeAirZoomExplorer\" class=\"explorer-frame\" data-frames-dir=\"../images/air_zoom_explorer/frames/\" data-overlays-dir=\"../images/air_zoom_explorer/overlays/\" data-lang=\"eng/\">\n        <div class=\"explorer-spinner\"></div>\n        <div id=\"explorerSlider\" class=\"explorer-controls\">\n          <!-- <input  class=\"explorer-range-slider\" type=\"range\"> -->\n        </div>\n        <div class=\"explorer-overlays\">\n\n        </div>\n        <div class=\"explorer-image-seq-container\">\n          <img src=\"/images/air_zoom_explorer/frames/shoe_splodin_1.jpg\" alt=\"Nike Air Zoom\" class=\"explorer-image-seq-image\">\n        </div>\n      </div>\n\n    </div>\n\n\n\n    <!-- build:js scripts/vendor.js -->\n    <!-- bower:js -->\n    <script src=\"/bower_components/jquery/dist/jquery.js\"></script>\n    <script src=\"/bower_components/image_preloader/image_preloader.js\"></script>\n    <script src=\"/bower_components/spin.js/spin.js\"></script>\n    <script src=\"/bower_components/nouislider/distribute/nouislider.js\"></script>\n    <!-- endbower -->\n    <!-- endbuild -->\n\n    <!-- build:js scripts/main.js -->\n    <script src=\"scripts/main.js\"></script>\n    <!-- endbuild -->\n\n    <script>\n\n      (function($) {\n        var scrubber = new transport.ImageScrubber($('#nikeAirZoomExplorer'));\n\n        // var snapSlider = document.getElementById('explorerSlider');\n\n        // noUiSlider.create(snapSlider, {\n        //   start: 40,\n        //   behaviour: 'snap',\n        //   connect: 'lower',\n        //   range: {\n        //     'min':  20,\n        //     'max':  80\n        //   }\n        // });\n      })(jQuery);\n    </script>\n  </body>\n</html>\n",
 			"file": "app/index.html",
+			"file_size": 3030,
+			"file_write_time": 1438959921000000,
 			"settings":
 			{
-				"buffer_size": 2035,
+				"buffer_size": 3030,
 				"line_ending": "Unix"
 			}
 		}
@@ -844,6 +850,7 @@
 	},
 	"file_history":
 	[
+		"/Users/larryr/Development/Transport/vidscrubber/bower_components/rangeslider.js/dist/rangeslider.css",
 		"/Users/larryr/Development/Transport/vidscrubber/gulpfile.babel.js",
 		"/Users/larryr/Development/Transport/vidscrubber/app/scripts/main.js.coffee",
 		"/Users/larryr/Development/Transport/vidscrubber/app/scripts/__main.js",
@@ -970,8 +977,7 @@
 		"/Users/larryr/Development/theclymb/app/views/admin/navigation_categories/_form.html.slim",
 		"/Users/larryr/Development/theclymb/app/helpers/application_helper.rb",
 		"/Users/larryr/Development/theclymb/app/models/navigation_category.rb",
-		"/Users/larryr/Development/theclymb/app/models/navigation_category_item.rb",
-		"/Users/larryr/Development/theclymb/app/assets/stylesheets/core/v2/typographic_rhythm.css.scss"
+		"/Users/larryr/Development/theclymb/app/models/navigation_category_item.rb"
 	],
 	"find":
 	{
@@ -1117,6 +1123,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"snapSlider",
+			"draw",
+			"image_preloader",
 			"serve",
 			"grunt.",
 			"loadNpmTasks",
@@ -1241,10 +1250,7 @@
 			"light",
 			"dates",
 			"calendar-month-name",
-			"none",
-			"yellow",
-			"clear",
-			"table"
+			"none"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1289,15 +1295,15 @@
 					"file": "app/scripts/main.coffee",
 					"settings":
 					{
-						"buffer_size": 1767,
+						"buffer_size": 2467,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1420,
-								1420
+								1475,
+								1475
 							]
 						],
 						"settings":
@@ -1397,7 +1403,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 522.0,
+						"translation.y": 851.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1413,15 +1419,15 @@
 					"file": "app/styles/main.scss",
 					"settings":
 					{
-						"buffer_size": 125,
+						"buffer_size": 611,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								26,
-								26
+								330,
+								330
 							]
 						],
 						"settings":
@@ -1537,15 +1543,15 @@
 					"file": "app/index.html",
 					"settings":
 					{
-						"buffer_size": 2035,
+						"buffer_size": 3030,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1852,
-								1852
+								2979,
+								2684
 							]
 						],
 						"settings":
@@ -1645,7 +1651,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 756.0,
+						"translation.y": 1389.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1704,7 +1710,7 @@
 		"rows":
 		[
 			0.0,
-			0.547767653108,
+			0.605340207953,
 			1.0
 		]
 	},

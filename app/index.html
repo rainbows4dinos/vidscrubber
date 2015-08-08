@@ -11,6 +11,7 @@
 
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/nouislider/distribute/nouislider.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -34,12 +35,9 @@
         max-width: 1140px;
         width: 100%;
         margin: 0 auto;
-        padding: 100px 0;
+        padding: 20px 0;
       }
-
     </style>
-
-
   </head>
   <body>
     <!--[if lt IE 10]>
@@ -47,24 +45,22 @@
     <![endif]-->
 
     <div class="container">
-
-      <div id="nikeAirZoomExplorer" class="explorer-frame" data-frames-dir="../images/air_zoom_explorer/frames/" data-overlays-dir="../images/air_zoom_explorer/overlays/" data-lang="eng/">
+      <div id="nikeAirZoomExplorer" class="explorer-frame" data-frames-dir="../images/air_zoom_explorer/frames/" data-frame-count="24" data-overlays-dir="../images/air_zoom_explorer/overlays/" data-lang="eng/">
         <div class="explorer-spinner"></div>
+        <div id="explorerSlider" class="explorer-controls"></div>
+        <div class="explorer-overlays"></div>
         <div class="explorer-image-seq-container">
           <img src="/images/air_zoom_explorer/frames/shoe_splodin_1.jpg" alt="Nike Air Zoom" class="explorer-image-seq-image">
         </div>
       </div>
-
     </div>
-
-
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/spin.js/spin.min.js"></script>
-    <script src="/bower_components/rangeslider.js/dist/rangeslider.min.js"></script>
     <script src="/bower_components/image_preloader/image_preloader.js"></script>
+    <script src="/bower_components/spin.js/spin.js"></script>
+    <script src="/bower_components/nouislider/distribute/nouislider.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -73,9 +69,9 @@
     <!-- endbuild -->
 
     <script>
-      $(function(){
+      (function($) {
         var scrubber = new transport.ImageScrubber($('#nikeAirZoomExplorer'));
-      });
+      })(jQuery);
     </script>
   </body>
 </html>
