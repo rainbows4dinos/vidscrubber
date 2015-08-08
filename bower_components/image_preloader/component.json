@@ -1,0 +1,6 @@
+{
+  "name": "image_preloader",
+  "description": "Simple javascript image preloader",
+  "version": "1.0.1",
+  "main": "image_preloader.js"
+}

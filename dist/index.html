@@ -1,0 +1,21 @@
+<!doctype html> <html class=no-js> <head> <meta charset=utf-8> <meta name=description> <meta name=viewport content="width=device-width, initial-scale=1"> <title>vidscrubber</title> <link rel=apple-touch-icon href=apple-touch-icon.png>  <link rel=stylesheet href=styles/vendor.css> <link rel=stylesheet href=styles/main.css> <script src=scripts/vendor/modernizr.js></script> <style>
+      body {
+        background: #fefefe;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #333;
+      }
+
+      .container {
+        position: relative;
+        max-width: 1140px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px 0;
+      }
+    </style> </head> <body> <!--[if lt IE 10]>
+ <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+ <![endif]--> <div class=container> <div id=nikeAirZoomExplorer class=explorer-frame data-frames-dir="../images/air_zoom_explorer/frames/" data-frame-count=24 data-overlays-dir="../images/air_zoom_explorer/overlays/" data-lang="eng/"> <div class=explorer-spinner></div> <div id=explorerSlider class=explorer-controls></div> <div class=explorer-overlays></div> <div class=explorer-image-seq-container> <img src=/images/air_zoom_explorer/frames/shoe_splodin_1.jpg alt="Nike Air Zoom" class=explorer-image-seq-image> </div> </div> </div> <script src=scripts/vendor.js></script> <script src=scripts/main.js></script> <script>
+      (function($) {
+        var scrubber = new transport.ImageScrubber($('#nikeAirZoomExplorer'));
+      })(jQuery);
+    </script> </body> </html> 

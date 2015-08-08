@@ -1,0 +1,17 @@
+{
+  "name": "image_preloader",
+  "description": "Simple javascript image preloader",
+  "version": "1.0.1",
+  "main": "image_preloader.js",
+  "homepage": "https://github.com/6/image_preloader.js",
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.1",
+    "commit": "3dfabd01235fcf1756fed0d121052cfd1c28dd15"
+  },
+  "_source": "git://github.com/6/image_preloader.js.git",
+  "_target": "~1.0.1",
+  "_originalSource": "image_preloader",
+  "_direct": true
+}
