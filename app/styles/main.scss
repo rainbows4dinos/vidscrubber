@@ -8,9 +8,25 @@
 
 }
 
-.explorer-image-seq-image {
+.explorer-image {
   width: 100%;
   height: auto;
+}
+
+.explorer-canvas {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+
+.explorer-controls {
+  position: absolute;
+  width: 40%;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -20%;
+  z-index: 2;
 }
 
 .explorer-spinner {
@@ -25,13 +41,6 @@
   z-index: 3;
 }
 
-.explorer-controls {
-  position: absolute;
-  width: 40%;
-  bottom: 20px;
-  left: 50%;
-  margin-left: -20%;
-  z-index: 2;
-}
+
 
 

@@ -11,17 +11,20 @@ class transport.ImageScrubber
   @ON_SLIDE             = 'transport.on.slide'
 
   constructor: (@target) ->
-    @imageSeqImg        = $('.explorer-image-seq-image', @target)
+    @startImg           = $('.explorer-image', @target)
     @spinnerTarget      = $('.explorer-spinner', @target)
     @framesDir          = $(@target).attr('data-frames-dir')
     @overlaysDir        = $(@target).attr('data-overlays-dir')
     @langDir            = $(@target).attr('data-lang')
     @sliderTarget       = $('.explorer-range-slider', @target)
+    @canvasTarget       = document.getElementById('explorerCanvas')
+    @canvasContext      = @canvasTarget.getContext('2d')
     @totalFrames        = parseInt($(@target).attr('data-frame-count')) || 24
     @targetFrame        = 1
     @currentFrame       = 1
     @imgNamePrefix      = "shoe_splodin_"
     @imageFrames        = []
+
     @init()
 
   init: ->
@@ -67,7 +70,9 @@ class transport.ImageScrubber
     console.log "current frame: #{frame}"
     return if frame <= 0
     src = @framesDir + @imgNamePrefix + frame + ".jpg"
-    @imageSeqImg.attr('src', src)
+    img = new Image()
+    img.src = src
+    @canvasContext.drawImage(img, 0, 0, @canvasTarget.width, @canvasTarget.height)
 
   preloadImgs: ->
     @spinner = new Spinner({color:'#fff', width: 2, length: 20, radius: 50, lines: 12}).spin()
