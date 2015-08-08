@@ -11,7 +11,6 @@ class transport.ImageScrubber
   @ON_SLIDE             = 'transport.on.slide'
 
   constructor: (@target) ->
-    @startImg           = $('.explorer-image', @target)
     @spinnerTarget      = $('.explorer-spinner', @target)
     @framesDir          = $(@target).attr('data-frames-dir')
     @overlaysDir        = $(@target).attr('data-overlays-dir')
