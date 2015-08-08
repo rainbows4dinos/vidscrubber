@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "chai": "~3.2.0",
-    "mocha": "~2.2.5"
+    "mocha": "~2.2.5",
+    "animation-frame": "~0.2.4"
   }
 }

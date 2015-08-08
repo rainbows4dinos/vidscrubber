@@ -3,14 +3,12 @@ module = (name) ->
 module "transport"
 
 # shim for requestAnimationFrame
-window.requestAnimationFrame = do ->
-  window.requestAnimationFrame or window.webkitRequestAnimationFrame or window.mozRequestAnimationFrame or window.oRequestAnimationFrame or window.msRequestAnimationFrame or (callback) ->
-    window.setTimeout callback, 1000 / 60
-    return
+AnimationFrame = window.AnimationFrame
+AnimationFrame.shim(20)
 
 class transport.ImageScrubber
-  @IMAGES_LOADED = 'transport.images.loaded'
-  @ON_SLIDE = 'transport.on.slide'
+  @IMAGES_LOADED        = 'transport.images.loaded'
+  @ON_SLIDE             = 'transport.on.slide'
 
   constructor: (@target) ->
     @imageSeqImg        = $('.explorer-image-seq-image', @target)
@@ -32,6 +30,7 @@ class transport.ImageScrubber
   initEvents: ->
     that = @
 
+    # init slider widget
     @slider = document.getElementById('explorerSlider')
     noUiSlider.create @slider,
       start: 1
@@ -41,16 +40,28 @@ class transport.ImageScrubber
         'min': 1
         'max': 24
 
+    # slider event
     @slider.noUiSlider.on 'update', (values, handle) ->
-      console.log "value: #{values[handle]}"
       that.targetFrame = Math.floor(values[handle])
 
-    @draw()
+    @play()
 
-  draw: =>
+
+
+  activate: ->
+
+  deactivate: ->
+
+
+  play: =>
     @currentFrame += (@targetFrame - @currentFrame) / 5 unless @currentFrame == @targetFrame
     @gotoFrame(Math.floor(@currentFrame))
-    window.requestAnimationFrame(@draw)
+    @req = window.requestAnimationFrame(@play)
+
+
+  pause: =>
+    window.cancelAnimationFrame(@req)
+
 
   gotoFrame: (frame) ->
     console.log "current frame: #{frame}"
