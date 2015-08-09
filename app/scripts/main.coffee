@@ -6,7 +6,7 @@ module "transport"
 AnimationFrame = window.AnimationFrame
 AnimationFrame.shim(24)
 
-class transport.ImageScrubber
+class transport.NikeAirZoomExplorer
   @IMAGES_LOAD_COMPLETE       = 'transport.images.complete'
   @SVG_LOAD_COMPLETE          = 'transport.svg.complete'
 
@@ -117,11 +117,11 @@ class transport.ImageScrubber
     @framesPreloader = new ImagePreloader
       urls: @frameSrcs
       complete: (imageUrls) ->
-        $(window).trigger(transport.ImageScrubber.IMAGES_LOAD_COMPLETE)
+        $(window).trigger(transport.NikeAirZoomExplorer.IMAGES_LOAD_COMPLETE)
 
     @framesPreloader.start()
 
-    $(window).on transport.ImageScrubber.IMAGES_LOAD_COMPLETE, (e) =>
+    $(window).on transport.NikeAirZoomExplorer.IMAGES_LOAD_COMPLETE, (e) =>
       # next, load the callouts
       @preloadSvgs()
 
@@ -134,10 +134,10 @@ class transport.ImageScrubber
     @svgPreloader = new ImagePreloader
       urls: @svgSrcs
       complete: (imageUrls) ->
-        $(window).trigger(transport.ImageScrubber.SVG_LOAD_COMPLETE)
+        $(window).trigger(transport.NikeAirZoomExplorer.SVG_LOAD_COMPLETE)
 
     @svgPreloader.start()
 
-    $(window).on transport.ImageScrubber.SVG_LOAD_COMPLETE, (e) =>
+    $(window).on transport.NikeAirZoomExplorer.SVG_LOAD_COMPLETE, (e) =>
       # frames and callouts loaded, start animation
       @activate()

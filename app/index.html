@@ -73,7 +73,9 @@
 
     <script>
       (function($) {
-        var scrubber = new transport.ImageScrubber($('#nikeAirZoomExplorer'));
+        if (Modernizr.canvas) {
+          var airZoomExplorer = new transport.NikeAirZoomExplorer($('#nikeAirZoomExplorer'));
+        }
       })(jQuery);
     </script>
   </body>
