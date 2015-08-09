@@ -87,9 +87,7 @@ class transport.ImageScrubber
       numIn = Number(obj.in)
       numOut = Number(obj.out)
       if numIn <= frame and frame <= numOut
-        console.log "doCallout frame #{frame}"
         @calloutItems[i].fadeIn()
-        console.log "i is #{i}"
       else
         @calloutItems[i].fadeOut()
       i++
@@ -112,7 +110,6 @@ class transport.ImageScrubber
 
     $(window).on transport.ImageScrubber.IMAGES_LOAD_COMPLETE, (e) =>
       # next, load the callouts
-      console.log "images loaded"
       @preloadSvgs()
 
   preloadSvgs: ->
@@ -132,14 +129,11 @@ class transport.ImageScrubber
 
     $(window).on transport.ImageScrubber.SVG_LOADED, (e, imageDetails) =>
       # create li -> svg elements for each svg
-      console.log imageDetails
       li = $("<li style='background: url(#{imageDetails.url}) center no-repeat; background-size: contain;'></li>")
-      console.log li
       @calloutItems.push li
       @calloutsTarget.append(li)
 
     $(window).on transport.ImageScrubber.SVG_LOAD_COMPLETE, (e) =>
       # frames and callouts loaded, start animation
-      console.log "svgs loaded"
       @spinner.stop()
       @initEvents()
