@@ -61,25 +61,63 @@
 
 // noUISlider overrides
 
+$pineGreen: #00a69c;
+
+.noUi-horizontal {
+  height: 10px;
+}
+
 .noUi-background {
-  background: #333;
+  background: #666;
   box-shadow: none;
 }
 
+.noUi-connect {
+  background: #333;
+}
+
 .noUi-horizontal .noUi-handle {
-  width: 65px;
+  width: 64px;
+  height: 28px;
+  left: -33px;
+  top: -9px;
 }
 
 .noUi-handle {
+  border: 1px solid #333;
   border-radius: 20px;
+  box-shadow: none;
+  background-color: $pineGreen;
+
+  &:before, &:after {
+    top: 6px;
+    left: 27px;
+    width: 2px;
+    background: $pineGreen;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+  }
+
+  &:after {
+    left: 33px;
+  }
+}
+
+.noUi-handle:before,
+.noUi-handle:after {
+  // display: none;
 }
 
 .noUi-origin {
-  border-radius: 10px;
+  border-radius: 4px;
 }
 .noUi-target {
-  border-radius: 20px;
+  border-radius: 4px;
   border: none;
+  box-shadow: none;
+}
+
+.noUi-target.noUi-connect {
   box-shadow: none;
 }
 
