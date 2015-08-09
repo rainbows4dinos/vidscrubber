@@ -15,7 +15,8 @@ class transport.ImageScrubber
     @framesDir          = $(@target).attr('data-frames-dir')
     @calloutsDir        = $(@target).attr('data-callouts-dir')
     @langDir            = $(@target).attr('data-lang')
-    @sliderTarget       = $('.explorer-range-slider', @target)
+    @controlsTarget     = $('.explorer-controls', @target)
+    @sliderTarget       = $('.explorer-range-slider', @controlsTarget)
     @framesCanvas       = document.getElementById('explorerFramesCanvas')
     @framesContext      = @framesCanvas.getContext('2d')
     @calloutsTarget     = $('.explorer-overlays', @target)
@@ -62,6 +63,12 @@ class transport.ImageScrubber
       that.doCallout(Math.floor(values[handle]))
 
     @play()
+
+  activate: ->
+    @buildCallouts()
+    @spinner.stop()
+    @initEvents()
+    @controlsTarget.fadeIn(800)
 
   play: =>
     @currentFrame += (@targetFrame - @currentFrame) / 5 unless @currentFrame == @targetFrame
@@ -133,6 +140,4 @@ class transport.ImageScrubber
 
     $(window).on transport.ImageScrubber.SVG_LOAD_COMPLETE, (e) =>
       # frames and callouts loaded, start animation
-      @buildCallouts()
-      @spinner.stop()
-      @initEvents()
+      @activate()

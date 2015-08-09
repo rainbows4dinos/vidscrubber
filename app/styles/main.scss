@@ -38,15 +38,6 @@
   }
 }
 
-.explorer-controls {
-  position: absolute;
-  width: 50%;
-  bottom: 20px;
-  left: 50%;
-  margin-left: -25%;
-  z-index: 300;
-}
-
 .explorer-spinner {
   position: absolute;
   width: 300px;
@@ -57,6 +48,19 @@
   right: 0;
   margin: auto;
   z-index: 4;
+}
+
+.explorer-controls {
+  display: none;
+  position: absolute;
+  width: 50%;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -25%;
+  z-index: 300;
+}
+
+.explorer-range-slider {
 }
 
 // noUISlider overrides
@@ -91,7 +95,7 @@ $pineGreen: #00a69c;
 
   &:before, &:after {
     top: 6px;
-    left: 27px;
+    left: 26px;
     width: 2px;
     background: $pineGreen;
     border-left: 1px solid #eee;
@@ -99,7 +103,7 @@ $pineGreen: #00a69c;
   }
 
   &:after {
-    left: 33px;
+    left: 32px;
   }
 }
 
