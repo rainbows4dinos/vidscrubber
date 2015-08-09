@@ -14,7 +14,7 @@
       }
     </style> </head> <body> <!--[if lt IE 10]>
  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
- <![endif]--> <div class=container> <div id=nikeAirZoomExplorer class=explorer-frame data-frames-dir="images/air_zoom_explorer/frames/" data-frame-count=24 data-overlays-dir="images/air_zoom_explorer/overlays/" data-lang="eng/"> <div class=explorer-spinner></div> <div id=explorerSlider class=explorer-controls></div> <div class=explorer-overlays></div> <div class=explorer-image-seq-container> <canvas id=explorerCanvas class=explorer-canvas width=800 height=350></canvas> <img src=images/air_zoom_explorer/frames/shoe_splodin_1.jpg alt="Nike Air Zoom" class=explorer-default-image> </div> </div> </div> <script src=scripts/vendor.js></script> <script src=scripts/main.js></script> <script>
+ <![endif]--> <div class=container> <div id=nikeAirZoomExplorer class=explorer-frame data-frames-dir="images/air_zoom_explorer/frames/" data-frame-count=24 data-callouts-dir="images/air_zoom_explorer/callouts/" data-lang="eng/"> <div class=explorer-spinner></div> <div id=explorerSlider class=explorer-controls></div> <ul class=explorer-overlays> </ul> <div class=explorer-image-seq-container> <canvas id=explorerFramesCanvas class=explorer-canvas width=800 height=350></canvas> <img src=images/air_zoom_explorer/frames/shoe_splodin_1.jpg alt="Nike Air Zoom" class=explorer-default-image> </div> </div> </div> <script src=scripts/vendor.js></script> <script src=scripts/main.js></script> <script>
       (function($) {
         var scrubber = new transport.ImageScrubber($('#nikeAirZoomExplorer'));
       })(jQuery);
