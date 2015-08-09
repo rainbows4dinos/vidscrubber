@@ -20,7 +20,7 @@ class transport.ImageScrubber
     @framesContext      = @framesCanvas.getContext('2d')
     @calloutsTarget     = $('.explorer-overlays', @target)
 
-    @totalFrames        = parseInt($(@target).attr('data-frame-count')) or 24
+    @totalFrames        = Number($(@target).attr('data-frame-count')) or 24
     @totalCallouts      = 7
     @targetFrame        = 1
     @currentFrame       = 1
@@ -54,7 +54,7 @@ class transport.ImageScrubber
       step: 1
       range:
         'min': 1
-        'max': 24
+        'max': @totalFrames
 
     # slider event
     @slider.noUiSlider.on 'update', (values, handle) ->
@@ -88,7 +88,7 @@ class transport.ImageScrubber
       if numIn <= frame and frame <= numOut
         @calloutItems[i].fadeIn()
       else
-        @calloutItems[i].fadeOut()
+        @calloutItems[i].fadeOut(200)
       i++
 
   buildCallouts: ->
