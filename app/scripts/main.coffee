@@ -21,14 +21,25 @@ class transport.ImageScrubber
     @sliderTarget       = $('.explorer-range-slider', @target)
     @framesCanvas       = document.getElementById('explorerFramesCanvas')
     @framesContext      = @framesCanvas.getContext('2d')
+    @calloutsTarget     = $('.explorer-overlays', @target)
 
-    @totalFrames        = parseInt($(@target).attr('data-frame-count')) || 24
+    @totalFrames        = parseInt($(@target).attr('data-frame-count')) or 24
     @totalCallouts      = 7
     @targetFrame        = 1
     @currentFrame       = 1
     @imgNamePrefix      = 'shoe_splodin_'
     @calloutNamePrefix  = 'callouts_'
     @imageFrames        = []
+    @calloutItems       = []
+    @calloutsInOut  = [
+      {in: '2', out: '5'},
+      {in: '5', out: '8'},
+      {in: '7', out: '10'},
+      {in: '10', out: '13'},
+      {in: '13', out: '17'},
+      {in: '17', out: '21'},
+      {in: '23', out: '21'}
+    ]
 
     @init()
 
@@ -51,19 +62,18 @@ class transport.ImageScrubber
     # slider event
     @slider.noUiSlider.on 'update', (values, handle) ->
       that.targetFrame = Math.floor(values[handle])
+      that.doCallout(Math.floor(values[handle]))
+
+
 
     @play()
 
 
 
-  activate: ->
-
-  deactivate: ->
-
-
   play: =>
     @currentFrame += (@targetFrame - @currentFrame) / 5 unless @currentFrame == @targetFrame
-    @gotoFrame(Math.floor(@currentFrame))
+    f = Math.floor(@currentFrame)
+    @gotoFrame(f)
     @req = window.requestAnimationFrame(@play)
 
 
@@ -72,12 +82,25 @@ class transport.ImageScrubber
 
 
   gotoFrame: (frame) ->
-    console.log "current frame: #{frame}"
+    # console.log "current frame: #{frame}"
     return if frame <= 0
     src = @framesDir + @imgNamePrefix + frame + '.jpg'
     img = new Image()
     img.src = src
     @framesContext.drawImage(img, 0, 0, @framesCanvas.width, @framesCanvas.height)
+
+
+  doCallout: (frame) ->
+    i = 0
+    for obj in @calloutsInOut
+      if frame == Number(obj.in)
+        console.log "doCallout frame #{frame}"
+        @calloutItems[i].fadeIn()
+        console.log "i is #{i}"
+      else if frame == Number(obj.out)
+        @calloutItems[i].fadeOut()
+      i++
+
 
   preloadImgs: ->
     @spinner = new Spinner({color:'#fff', width: 2, length: 20, radius: 50, lines: 12}).spin()
@@ -109,14 +132,19 @@ class transport.ImageScrubber
     @svgPreloader = new ImagePreloader
       urls: @svgSrcs
       imageLoad: (imageDetails) ->
-        $(window).trigger(transport.ImageScrubber.SVG_LOADED)
+        $(window).trigger(transport.ImageScrubber.SVG_LOADED, [imageDetails])
       complete: (imageUrls) ->
         $(window).trigger(transport.ImageScrubber.SVG_LOAD_COMPLETE)
 
     @svgPreloader.start()
 
-    $(window).on transport.ImageScrubber.SVG_LOADED, (e) =>
+    $(window).on transport.ImageScrubber.SVG_LOADED, (e, imageDetails) =>
       # create li -> svg elements for each svg
+      console.log imageDetails
+      li = $("<li style='background: url(#{imageDetails.url}) center no-repeat; background-size: contain;'></li>")
+      console.log li
+      @calloutItems.push li
+      @calloutsTarget.append(li)
 
     $(window).on transport.ImageScrubber.SVG_LOAD_COMPLETE, (e) =>
       # frames and callouts loaded, start animation
