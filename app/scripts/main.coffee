@@ -11,8 +11,6 @@ class transport.ImageScrubber
   @SVG_LOADED                 = 'transport.svg.loaded'
   @SVG_LOAD_COMPLETE          = 'transport.svg.complete'
 
-  @ON_SLIDE             = 'transport.on.slide'
-
   constructor: (@target) ->
     @spinnerTarget      = $('.explorer-spinner', @target)
     @framesDir          = $(@target).attr('data-frames-dir')
@@ -34,11 +32,11 @@ class transport.ImageScrubber
     @calloutsInOut  = [
       {in: '2', out: '5'},
       {in: '5', out: '8'},
-      {in: '7', out: '10'},
-      {in: '10', out: '13'},
-      {in: '13', out: '17'},
-      {in: '17', out: '21'},
-      {in: '23', out: '21'}
+      {in: '8', out: '11'},
+      {in: '11', out: '14'},
+      {in: '14', out: '17'},
+      {in: '17', out: '20'},
+      {in: '23', out: '24'}
     ]
 
     @init()
@@ -64,11 +62,7 @@ class transport.ImageScrubber
       that.targetFrame = Math.floor(values[handle])
       that.doCallout(Math.floor(values[handle]))
 
-
-
     @play()
-
-
 
   play: =>
     @currentFrame += (@targetFrame - @currentFrame) / 5 unless @currentFrame == @targetFrame
@@ -76,10 +70,8 @@ class transport.ImageScrubber
     @gotoFrame(f)
     @req = window.requestAnimationFrame(@play)
 
-
   pause: =>
     window.cancelAnimationFrame(@req)
-
 
   gotoFrame: (frame) ->
     # console.log "current frame: #{frame}"
@@ -89,18 +81,18 @@ class transport.ImageScrubber
     img.src = src
     @framesContext.drawImage(img, 0, 0, @framesCanvas.width, @framesCanvas.height)
 
-
   doCallout: (frame) ->
     i = 0
     for obj in @calloutsInOut
-      if frame == Number(obj.in)
+      numIn = Number(obj.in)
+      numOut = Number(obj.out)
+      if numIn <= frame and frame <= numOut
         console.log "doCallout frame #{frame}"
         @calloutItems[i].fadeIn()
         console.log "i is #{i}"
-      else if frame == Number(obj.out)
+      else
         @calloutItems[i].fadeOut()
       i++
-
 
   preloadImgs: ->
     @spinner = new Spinner({color:'#fff', width: 2, length: 20, radius: 50, lines: 12}).spin()
