@@ -4,7 +4,7 @@ module "transport"
 
 # shim for requestAnimationFrame
 AnimationFrame = window.AnimationFrame
-AnimationFrame.shim(20)
+AnimationFrame.shim(24)
 
 class transport.ImageScrubber
   @IMAGES_LOAD_COMPLETE       = 'transport.images.complete'
