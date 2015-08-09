@@ -4,7 +4,7 @@ HTML5 image sequence scrubber with time/frame triggered overlays. It's called vi
 ## Compatibility:
 
 | Browser       | Version   |
-|---------------|-----------|
+|:--------------|:----------|
 | IE            | 9         |
 | Firefox       | 38        |
 | Chrome        | 31        |
