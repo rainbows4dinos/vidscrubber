@@ -1,8 +1,9 @@
 # Nike Air Zoom - Image Sequence Explorer
 HTML5 image sequence scrubber with time/frame triggered overlays. It's called vidscrubber because I originally thought I was going to use a video. Duh.
 
-Compatibility:
-| Browser       | Version # |
+## Compatibility:
+
+| ### Browser       | ### Version |
 |---------------|-----------|
 | IE            | 9         |
 | Firefox       | 38        |
