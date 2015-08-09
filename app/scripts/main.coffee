@@ -8,7 +8,6 @@ AnimationFrame.shim(20)
 
 class transport.ImageScrubber
   @IMAGES_LOAD_COMPLETE       = 'transport.images.complete'
-  @SVG_LOADED                 = 'transport.svg.loaded'
   @SVG_LOAD_COMPLETE          = 'transport.svg.complete'
 
   constructor: (@target) ->
@@ -92,6 +91,13 @@ class transport.ImageScrubber
         @calloutItems[i].fadeOut()
       i++
 
+  buildCallouts: ->
+    for src in @svgSrcs
+      li = $("<li style='background: url(#{src}) center no-repeat; background-size: contain;'></li>")
+      @calloutItems.push li
+      @calloutsTarget.append(li)
+
+
   preloadImgs: ->
     @spinner = new Spinner({color:'#fff', width: 2, length: 20, radius: 50, lines: 12}).spin()
     @spinnerTarget.append(@spinner.el)
@@ -120,20 +126,13 @@ class transport.ImageScrubber
 
     @svgPreloader = new ImagePreloader
       urls: @svgSrcs
-      imageLoad: (imageDetails) ->
-        $(window).trigger(transport.ImageScrubber.SVG_LOADED, [imageDetails])
       complete: (imageUrls) ->
         $(window).trigger(transport.ImageScrubber.SVG_LOAD_COMPLETE)
 
     @svgPreloader.start()
 
-    $(window).on transport.ImageScrubber.SVG_LOADED, (e, imageDetails) =>
-      # create li -> svg elements for each svg
-      li = $("<li style='background: url(#{imageDetails.url}) center no-repeat; background-size: contain;'></li>")
-      @calloutItems.push li
-      @calloutsTarget.append(li)
-
     $(window).on transport.ImageScrubber.SVG_LOAD_COMPLETE, (e) =>
       # frames and callouts loaded, start animation
+      @buildCallouts()
       @spinner.stop()
       @initEvents()
