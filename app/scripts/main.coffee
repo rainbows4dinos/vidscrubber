@@ -151,6 +151,6 @@ class transport.NikeAirZoomExplorer
 
   buildCallouts: ->
     for src in @svgSrcs
-      li = $("<li style='background: url(#{src}) center no-repeat; background-size: contain;'></li>")
+      li = $("<li style='background-image: url(#{src})'></li>")
       @calloutItems.push li
       @calloutsTarget.append(li)
