@@ -47,10 +47,20 @@ Most options are passed through the **data atributes** of the markup, with the e
 |`data-lang`| This is the name of the sub-directory containing the callouts. Create new directories for new languages.|
 
 ### Markup Options
-There are two blocks in the markup that you'll probably want to edit: The logo overlay (class `.explorer-logo-overlay`) and the default `img` (class `explorer-default-image`.) 
-The logo overlay is a div with a svg background. Make this svg whatever you like, but make sure it's the same width and height as the callouts and frames or else things won't line up. 
-The default img is the image that appears underneath everything while the app is spinning up. This can also serve as a fallback for older browsers. 
+There are two blocks in the markup that you'll probably want to edit: 
 
+The logo overlay (class `.explorer-logo-overlay`) and the default `img` (class `explorer-default-image`.) 
+
+The logo overlay is a **div with a svg background**. Make this svg whatever you like, but make sure it's the **same width and height as the callouts and frames (800 x 350)** or else things won't line up. 
+
+The default `img` is the **image that appears underneath everything** while the app is spinning up. This can also serve as a **fallback for older browsers**. 
+
+### Initializing The App
+Pretty straight forward. Just make sure JQuery is loaded and call:
+```
+var airZoomExplorer = new transport.NikeAirZoomExplorer($('#nikeAirZoomExplorer'));
+```
+Of course, you can name that variable whatever you like, but you get the idea. All we're doing is passing the markup wrapper `id` (`#nikeAirZoomExplorer`) into a new instance of `transport.NikeAirZoomExplorer`. Easy Peasy. There's an example of how you might check for basic compatability in the `index.html` provided. 
 
 ## Compatibility:
 
