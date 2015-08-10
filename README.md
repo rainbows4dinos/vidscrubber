@@ -64,7 +64,7 @@ The logo overlay (class `.explorer-logo-overlay`) and the default `img` (class `
 
 The logo overlay is a **div with a svg background**. Make this svg whatever you like, but make sure it's the **same width and height as the callouts and frames (800 x 350)** or else things won't line up. 
 
-The default `img` is the **image that appears underneath everything** while the app is spinning up. This can also serve as a **fallback for older browsers**. 
+The default `img` is the **image that appears underneath everything** while the app is spinning up. This can also serve as a **fallback for older browsers**. Once the app spins up this tag's `src` attribute will be swapped out for the different frames of the animation. 
 
 ### Initializing The App
 Pretty straight forward. Just make sure JQuery is loaded and call:
