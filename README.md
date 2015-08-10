@@ -18,20 +18,19 @@ First, include the required **js** and **css** files into your site.
 ### The Markup:
 ```
 <div id="nikeAirZoomExplorer" class="explorer-frame"
-    data-frames-dir         = "images/air_zoom_explorer/frames/"
-    data-frame-count        = "24"
-    data-callouts-dir       = "images/air_zoom_explorer/callouts/"
-    data-callout-points-json = "json/air-zoom-explorer-callout-points.json"
-    data-lang               = "eng/"
-    >
-    <div class="explorer-logo-overlay" style="background-image: url(images/air_zoom_explorer/logo.svg)"></div>
-    <div class="explorer-spinner"></div>
-    <div id="explorerSlider" class="explorer-controls"></div>
-    <ul class="explorer-overlays"></ul>
-    <div class="explorer-image-seq-container">
-      <canvas id="explorerFramesCanvas" class="explorer-canvas" width="800" height="350"></canvas>
-      <img src="images/air_zoom_explorer/frames/shoe_splodin_1.jpg" alt="Nike Air Zoom" class="explorer-default-image">
-    </div>
+  data-frames-dir         = "images/air_zoom_explorer/frames/"
+  data-frame-count        = "24"
+  data-callouts-dir       = "images/air_zoom_explorer/callouts/"
+  data-callout-points-json = "json/air-zoom-explorer-callout-points.json"
+  data-lang               = "eng/"
+  >
+  <div class="explorer-logo-overlay" style="background-image: url(images/air_zoom_explorer/peg32_logo.svg)"></div>
+  <div class="explorer-spinner"></div>
+  <div id="explorerSlider" class="explorer-controls"></div>
+  <ul class="explorer-overlays"></ul>
+  <div class="explorer-image-seq-container">
+    <img src="images/air_zoom_explorer/frames/shoe_splodin_1.jpg" alt="Nike Air Zoom" class="explorer-default-image">
+  </div>
 </div>
 ```
 
