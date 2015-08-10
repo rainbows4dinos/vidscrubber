@@ -47,7 +47,7 @@ Most options are passed through the **data atributes** of the markup, with the e
 |`data-lang`| This is the name of the sub-directory containing the callouts. Create new directories for new languages.|
 
 #### JSON
-The json is very simple: Just an array of objects corrisponding to the number of callouts, each object defining an in point and out point in frames. 
+The json is very simple: Just an array of objects corrisponding to the number of callouts, each object defining an **in point** and **out point** in frames. 
 ```
 {
 
