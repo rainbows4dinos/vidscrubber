@@ -15,8 +15,6 @@ First, include the required `js` and `css` files into your site.
 - `air-zoom-explorer-dependencies.js`
 - `air-zoom-explorer-main.js`
 
-Most options are passed through the `data` atributes of the markup, with the exeption of an optional json file you can load in to define the animation in and out points of the callouts. 
-
 ### The Markup:
 ```
 <div id="nikeAirZoomExplorer" class="explorer-frame"
@@ -36,6 +34,8 @@ Most options are passed through the `data` atributes of the markup, with the exe
     </div>
 </div>
 ```
+
+Most options are passed through the `data` atributes of the markup, with the exeption of an optional json file you can load in to define the animation in and out points of the callouts. 
 
 ### Data Attr Definitions:
 
