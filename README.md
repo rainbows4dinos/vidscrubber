@@ -5,7 +5,7 @@ View latest build:
 [http://rainbows4dinos.github.io/vidscrubber/](http://rainbows4dinos.github.io/vidscrubber/)
 
 ## Using 
-First, include the required `js` and `css` files into your site. 
+First, include the required **js** and **css** files into your site. 
 
 ### CSS
 - `air-zoom-explorer-dependencies.css`
@@ -35,11 +35,8 @@ First, include the required `js` and `css` files into your site.
 </div>
 ```
 
-### Options
+### Application Options
 Most options are passed through the **data atributes** of the markup, with the exeption of an **optional json file** you can load in to define the animation in and out points of the callouts. 
-
-#### Data Attr Definitions:
-
 
 |Data Attr   | Definition|
 |:-----------|:----------|
@@ -48,6 +45,12 @@ Most options are passed through the **data atributes** of the markup, with the e
 |`data-callouts-dir`| Path to directory containing the callouts. Must be `.svg`s same size as animation frames.|
 |`data-callout-point-json`| Optional - Path to a `.json` file defining the in and out points of each callout.|
 |`data-lang`| This is the name of the sub-directory containing the callouts. Create new directories for new languages.|
+
+### Markup Options
+There are two blocks in the markup that you'll probably want to edit: The logo overlay (class `.explorer-logo-overlay`) and the default `img` (class `explorer-default-image`.) 
+The logo overlay is a div with a svg background. Make this svg whatever you like, but make sure it's the same width and height as the callouts and frames or else things won't line up. 
+The default img is the image that appears underneath everything while the app is spinning up. This can also serve as a fallback for older browsers. 
+
 
 ## Compatibility:
 
