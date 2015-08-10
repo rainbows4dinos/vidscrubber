@@ -10,6 +10,7 @@ First, include the required `js` and `css` files into your site.
 ### CSS
 - `air-zoom-explorer-dependencies.css`
 - `air-zoom-explorer.css`
+
 ### JS
 - `air-zoom-explorer-dependencies.js`
 - `air-zoom-explorer-main.js`
