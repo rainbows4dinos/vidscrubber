@@ -5,7 +5,42 @@ View latest build:
 [http://rainbows4dinos.github.io/vidscrubber/](http://rainbows4dinos.github.io/vidscrubber/)
 
 ## Using 
+First, include the required `js` and `css` files into your site. 
+#### CSS
+`air-zoom-explorer-dependencies.css`
+`air-zoom-explorer.css`
+#### JS
+
+
 Most options are passed through the `data` atributes of the markup, with the exeption of an optional json file you can load in to define the animation in and out points of the callouts. 
+
+
+#### The Markup:
+```
+<div id="nikeAirZoomExplorer" class="explorer-frame"
+    data-frames-dir         = "images/air_zoom_explorer/frames/"
+    data-frame-count        = "24"
+    data-callouts-dir       = "images/air_zoom_explorer/callouts/"
+    data-callout-points-json = "json/air-zoom-explorer-callout-points.json"
+    data-lang               = "eng/"
+    >
+    <div class="explorer-spinner"></div>
+    <div id="explorerSlider" class="explorer-controls"></div>
+    <ul class="explorer-overlays"></ul>
+    <div class="explorer-image-seq-container">
+      <canvas id="explorerFramesCanvas" class="explorer-canvas" width="800" height="350"></canvas>
+      <img src="images/air_zoom_explorer/frames/shoe_splodin_1.jpg" alt="Nike Air Zoom" class="explorer-default-image">
+    </div>
+</div>
+```
+#### Data Attr Definitions:
+|Data Attr   | Definition|
+|:-----------|:----------|
+|`data-frames-dir` | Path to directory containing the animation's frames. These must be `.jpg`s.|
+|`data-frames-count` | Optional - # of frames in the animation, corrisponding to # of jpgs. Defaults to 24.|
+|`data-callouts-dir`| Path to directory containing the callouts. Must be `.svg`s same size as animation frames.|
+|`data-callout-point-json`| Optional - Path to a `.json` file defining the in and out points of each callout.|
+|`data-lang`| This is the name of the sub-directory containing the callouts. Create new directories for new languages.|
 
 ## Compatibility:
 
