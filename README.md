@@ -4,7 +4,8 @@ HTML5 image sequence scrubber with time/frame triggered overlays. It's called vi
 View latest build:
 [http://rainbows4dinos.github.io/vidscrubber/](http://rainbows4dinos.github.io/vidscrubber/)
 
-Full documentation coming soon.
+## Using 
+Most options are passed through the `data` atributes of the markup, with the exeption of an optional json file you can load in to define the animation in and out points of the callouts. 
 
 ## Compatibility:
 
