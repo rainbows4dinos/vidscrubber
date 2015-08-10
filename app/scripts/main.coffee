@@ -12,13 +12,12 @@ class transport.NikeAirZoomExplorer
 
   constructor: (@target) ->
     @spinnerTarget      = $('.explorer-spinner', @target)
+    @imgBase            = $('img.explorer-default-image', @target)
     @framesDir          = $(@target).attr('data-frames-dir')
     @calloutsDir        = $(@target).attr('data-callouts-dir')
     @langDir            = $(@target).attr('data-lang')
     @controlsTarget     = $('.explorer-controls', @target)
     @sliderTarget       = $('.explorer-range-slider', @controlsTarget)
-    @framesCanvas       = document.getElementById('explorerFramesCanvas')
-    @framesContext      = @framesCanvas.getContext('2d')
     @calloutsTarget     = $('.explorer-overlays', @target)
     @totalFrames        = Number($(@target).attr('data-frame-count')) or 24
     @totalCallouts      = 7
@@ -134,9 +133,7 @@ class transport.NikeAirZoomExplorer
     # console.log "current frame: #{frame}"
     return if frame <= 0
     src = @framesDir + @imgNamePrefix + frame + '.jpg'
-    img = new Image()
-    img.src = src
-    @framesContext.drawImage(img, 0, 0, @framesCanvas.width, @framesCanvas.height)
+    @imgBase.attr('src', src)
 
   doCallout: (frame) ->
     i = 0
