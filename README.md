@@ -36,7 +36,7 @@ First, include the required `js` and `css` files into your site.
 ```
 
 ### Options
-Most options are passed through the `data` atributes of the markup, with the exeption of an optional json file you can load in to define the animation in and out points of the callouts. 
+Most options are passed through the **data atributes** of the markup, with the exeption of an **optional json file** you can load in to define the animation in and out points of the callouts. 
 
 #### Data Attr Definitions:
 
